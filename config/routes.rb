@@ -7,6 +7,7 @@ Rails.application.routes.draw do
         # resources :find, only: [:show]
         get '/find', to: "find#show"
         get '/find_all', to: "find_all#index"
+        get '/random', to: "random#show"
         # resources :find_all, only: [:index]
       end
       resources :items, only: [:index, :show], defaults: {format: :json}
