@@ -1,4 +1,4 @@
-FactorGirl.define do
+FactoryGirl.define do
 
   factory :merchant do
     name {generate(:merchant_name)}
@@ -36,15 +36,15 @@ FactorGirl.define do
 
   factory :item do
     name Faker::Name.title
-    description Faker::Hipser.sentence
-    unit_price Faker::Commerce.number(4)
+    description Faker::Hipster.sentence
+    unit_price Faker::Number.number(4)
     merchant
   end
 
   factory :invoice_items do
     item
     invoice
-    quantity Faker::Commerce.number(1)
-    unit_price Faker::Commer.number(4)
+    quantity Faker::Number.number(1)
+    unit_price Faker::Number.number(4)
   end
 end
