@@ -21,7 +21,6 @@ FactorGirl.define do
     "Last-#{n}"
   end
 
-
   factory :invoices do
     customer
     merchant
