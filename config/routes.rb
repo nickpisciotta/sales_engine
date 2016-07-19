@@ -3,11 +3,13 @@ Rails.application.routes.draw do
 
   namespace :api do
     namespace :v1 do
-      resources :items, only: [:index, :show], defaults: {format: :json} 
       namespace :items do
-        resources :find, only: [:show]
-        resources :find_all, only: [:index]
+        # resources :find, only: [:show]
+        get '/find', to: "find#show"
+        get '/find_all', to: "find_all#index"
+        # resources :find_all, only: [:index]
       end
+      resources :items, only: [:index, :show], defaults: {format: :json}
     end
   end
 
