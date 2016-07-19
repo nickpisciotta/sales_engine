@@ -7,4 +7,16 @@ Rails.application.routes.draw do
       end
     end
   end
+
+  namespace :api do
+    namespace :v1 do
+      namespace :items do
+        # resources :find, only: [:show]
+        get '/find', to: "find#show"
+        get '/find_all', to: "find_all#index"
+        # resources :find_all, only: [:index]
+      end
+      resources :items, only: [:index, :show], defaults: {format: :json}
+    end
+  end
 end
