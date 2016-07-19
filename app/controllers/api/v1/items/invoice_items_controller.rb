@@ -1,4 +1,4 @@
-class Api::V1::Items::RandomController < ApplicationController
+class Api::V1::Items::InvoiceItemsController < ApplicationController
   respond_to :json, :xml
 
   def index
