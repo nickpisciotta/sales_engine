@@ -38,8 +38,10 @@ describe "Transactions Find Controller" do
     transaction = create(:transaction, credit_card_expiration_date: time)
     get '/api/v1/transactions/find', params: {credit_card_expiration_date: time}
 
+    found_transaction = Transaction.find(json['id'])
+
     expect(response).to be_success
-    expect(json["credit_card_expiration_date"]).to eq("2012-03-27 14:53:59 UTC")
+    expect(found_transaction.credit_card_expiration_date).to eq("2012-03-27 14:53:59 UTC")
   end
 
   it "can find a transaction based on created_at" do
@@ -47,8 +49,10 @@ describe "Transactions Find Controller" do
     transaction = create(:transaction, created_at: time)
     get '/api/v1/transactions/find', params: {created_at: time}
 
+    found_transaction = Transaction.find(json['id'])
+
     expect(response).to be_success
-    expect(json["created_at"]).to eq("2012-03-27T14:53:59.000Z")
+    expect(found_transaction.created_at).to eq("2012-03-27T14:53:59.000Z")
   end
 
   it "can find a transaction based on updated_at" do
@@ -56,7 +60,9 @@ describe "Transactions Find Controller" do
     transaction = create(:transaction, updated_at: time)
     get '/api/v1/transactions/find', params: {updated_at: time}
 
+    found_transaction = Transaction.find(json['id'])
+
     expect(response).to be_success
-    expect(json["updated_at"]).to eq("2012-06-30T14:53:59.000Z")
+    expect(found_transaction.updated_at).to eq("2012-06-30T14:53:59.000Z")
   end
 end
