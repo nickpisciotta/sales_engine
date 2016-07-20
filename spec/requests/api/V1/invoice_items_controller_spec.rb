@@ -22,10 +22,11 @@ describe "Invoice Items Request" do
       expect(response.status).to eq(200)
 
       parsed_items = JSON.parse(response.body)
+      formatted_price = (BigDecimal(invoice_item.unit_price)/100).to_s
 
       expect(parsed_items["item_id"]).to eq(invoice_item.item_id)
       expect(parsed_items["quantity"]).to eq(invoice_item.quantity)
-      expect(parsed_items["unit_price"]).to eq(invoice_item.unit_price)
+      expect(parsed_items["unit_price"]).to eq(formatted_price)
     end
 
     it "finds an invoice_item given id params" do
@@ -37,10 +38,11 @@ describe "Invoice Items Request" do
       expect(response.status).to eq(200), params: {id: invoice_item1.id}
 
       parsed_items = JSON.parse(response.body)
+      formatted_price = (BigDecimal(invoice_item1.unit_price)/100).to_s
 
       expect(parsed_items["item_id"]).to eq(invoice_item1.item_id)
       expect(parsed_items["quantity"]).to eq(invoice_item1.quantity)
-      expect(parsed_items["unit_price"]).to eq(invoice_item1.unit_price)
+      expect(parsed_items["unit_price"]).to eq(formatted_price)
     end
 
     it "finds an invoice_item given item_id params" do
@@ -53,9 +55,11 @@ describe "Invoice Items Request" do
 
       parsed_items = JSON.parse(response.body)
 
+      formatted_price = (BigDecimal(invoice_item1.unit_price)/100).to_s
+
       expect(parsed_items["item_id"]).to eq(invoice_item1.item_id)
       expect(parsed_items["quantity"]).to eq(invoice_item1.quantity)
-      expect(parsed_items["unit_price"]).to eq(invoice_item1.unit_price)
+      expect(parsed_items["unit_price"]).to eq(formatted_price)
     end
 
     it "finds an invoice_item given invoice_id params" do
@@ -67,10 +71,11 @@ describe "Invoice Items Request" do
       expect(response.status).to eq(200)
 
       parsed_items = JSON.parse(response.body)
+      formatted_price = (BigDecimal(invoice_item1.unit_price)/100).to_s
 
       expect(parsed_items["item_id"]).to eq(invoice_item1.item_id)
       expect(parsed_items["quantity"]).to eq(invoice_item1.quantity)
-      expect(parsed_items["unit_price"]).to eq(invoice_item1.unit_price)
+      expect(parsed_items["unit_price"]).to eq(formatted_price)
     end
 
     it "finds an invoice_item given created_at params" do
@@ -82,10 +87,11 @@ describe "Invoice Items Request" do
       expect(response.status).to eq(200)
 
       parsed_items = JSON.parse(response.body)
+      formatted_price = (BigDecimal(invoice_item1.unit_price)/100).to_s
 
       expect(parsed_items["item_id"]).to eq(invoice_item1.item_id)
       expect(parsed_items["quantity"]).to eq(invoice_item1.quantity)
-      expect(parsed_items["unit_price"]).to eq(invoice_item1.unit_price)
+      expect(parsed_items["unit_price"]).to eq(formatted_price)
     end
 
     it "finds an invoice_item given updated_at params" do
@@ -97,10 +103,11 @@ describe "Invoice Items Request" do
       expect(response.status).to eq(200)
 
       parsed_items = JSON.parse(response.body)
+      formatted_price = (BigDecimal(invoice_item1.unit_price)/100).to_s
 
       expect(parsed_items["item_id"]).to eq(invoice_item1.item_id)
       expect(parsed_items["quantity"]).to eq(invoice_item1.quantity)
-      expect(parsed_items["unit_price"]).to eq(invoice_item1.unit_price)
+      expect(parsed_items["unit_price"]).to eq(formatted_price)
     end
 
     it "finds all invoice_items given item_id params" do

@@ -22,8 +22,10 @@ describe "Merchant Find Controller" do
     merchant = create(:merchant, created_at: time)
     get '/api/v1/merchants/find', params: {created_at: time}
 
+    found_merchant = Merchant.find(json['id'])
+
     expect(response).to be_success
-    expect(json["created_at"]).to eq("2012-03-27T14:53:59.000Z")
+    expect(found_merchant.created_at).to eq("2012-03-27T14:53:59.000Z")
   end
 
   it "can find a merchant based on updated_at" do
@@ -31,7 +33,9 @@ describe "Merchant Find Controller" do
     merchant = create(:merchant, updated_at: time)
     get '/api/v1/merchants/find', params: {updated_at: time}
 
+    found_merchant = Merchant.find(json['id'])
+
     expect(response).to be_success
-    expect(json["updated_at"]).to eq("2012-06-30T14:53:59.000Z")
+    expect(found_merchant.updated_at).to eq("2012-06-30T14:53:59.000Z")
   end
 end
