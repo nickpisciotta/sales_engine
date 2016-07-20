@@ -9,12 +9,20 @@ describe "Customers Find Controller" do
     expect(json["id"]).to eq(customer.id)
   end
 
-  it "can find a customer based on name" do
-    customer = create(:customer, name: "MerchantName")
-    get '/api/v1/customers/find', params: {name: "MerchantName"}
+  it "can find a customer based on first name" do
+    customer = create(:customer, first_name: "Julie")
+    get '/api/v1/customers/find', params: {first_name: "Julie"}
 
     expect(response).to be_success
-    expect(json["name"]).to eq("MerchantName")
+    expect(json["first_name"]).to eq("Julie")
+  end
+
+  it "can find a customer based on first name" do
+    customer = create(:customer, last_name: "Smith")
+    get '/api/v1/customers/find', params: {last_name: "Smith"}
+
+    expect(response).to be_success
+    expect(json["last_name"]).to eq("Smith")
   end
 
   it "can find a customer based on created_at" do
