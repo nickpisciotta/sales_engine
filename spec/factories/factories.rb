@@ -2,6 +2,8 @@ FactoryGirl.define do
 
   factory :merchant do
     name {generate(:merchant_name)}
+    created_at '2012-03-27 14:53:59 UTC'
+    updated_at '2012-06-30 14:53:59 UTC'
   end
 
   sequence :merchant_name do |n|
@@ -28,9 +30,9 @@ FactoryGirl.define do
   end
 
   factory :transaction do
-    invoices
+    invoice
     credit_card_number Faker::Business.credit_card_number
-    expiration_date Faker::Business.credit_card_expiry_date
+    credit_card_expiration_date Faker::Business.credit_card_expiry_date
     result "success"
   end
 

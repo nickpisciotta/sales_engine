@@ -1,7 +1,7 @@
 class Api::V1::Customers::FindController < ApplicationController
   respond_to :json, :xml
 
-  def index
+  def show
     respond_with Customer.find_by(customer_params)
   end
 
