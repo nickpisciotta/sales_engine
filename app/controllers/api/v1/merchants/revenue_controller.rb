@@ -1,9 +1,11 @@
 class Api::V1::Merchants::RevenueController < ApplicationController
   respond_to :json, :xml
 
-  def show
-    merchant = Merchant.find(params['id'])
-    revenue = merchant.invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).sum("quantity * unit_price")
-    respond_with revenue
+  def index
+    if params['date']
+      respond_with Merchant.find(params['id']).revenue_by_date(params['date'])
+    else
+      respond_with Merchant.find(params['id']).find_revenue
+    end
   end
 end
