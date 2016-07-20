@@ -21,13 +21,13 @@ FactoryGirl.define do
     "Last-#{n}"
   end
 
-  factory :invoices do
+  factory :invoice do
     customer
     merchant
     status "shipped"
   end
 
-  factory :transactions do
+  factory :transaction do
     invoices
     credit_card_number Faker::Business.credit_card_number
     expiration_date Faker::Business.credit_card_expiry_date
@@ -41,7 +41,7 @@ FactoryGirl.define do
     merchant
   end
 
-  factory :invoice_items do
+  factory :invoice_item do
     item
     invoice
     quantity Faker::Number.number(1)
