@@ -2,6 +2,8 @@ FactoryGirl.define do
 
   factory :merchant do
     name {generate(:merchant_name)}
+    created_at '2012-03-27 14:53:59 UTC'
+    updated_at '2012-06-30 14:53:59 UTC'
   end
 
   sequence :merchant_name do |n|
@@ -21,16 +23,16 @@ FactoryGirl.define do
     "Last-#{n}"
   end
 
-  factory :invoices do
+  factory :invoice do
     customer
     merchant
     status "shipped"
   end
 
-  factory :transactions do
-    invoices
+  factory :transaction do
+    invoice
     credit_card_number Faker::Business.credit_card_number
-    expiration_date Faker::Business.credit_card_expiry_date
+    credit_card_expiration_date Faker::Business.credit_card_expiry_date
     result "success"
   end
 
@@ -41,7 +43,7 @@ FactoryGirl.define do
     merchant
   end
 
-  factory :invoice_items do
+  factory :invoice_item do
     item
     invoice
     quantity Faker::Number.number(1)
