@@ -13,10 +13,10 @@ describe "Most Items Controller" do
       invoice1.transactions << create(:transaction)
       invoice2.transactions << create(:transaction)
       invoice3.transactions << create(:transaction)
-      invoice1.invoice_items << create(:invoice_item, quantity: 2, unit_price: 1233)
-      invoice2.invoice_items << create(:invoice_item, quantity: 8, unit_price: 1899)
-      invoice2.invoice_items << create(:invoice_item, quantity: 4, unit_price: 999)
-      invoice3.invoice_items << create(:invoice_item, quantity: 3, unit_price: 1599)
+      invoice1.invoice_items << create(:invoice_item, quantity: 2)
+      invoice2.invoice_items << create(:invoice_item, quantity: 8)
+      invoice2.invoice_items << create(:invoice_item, quantity: 4)
+      invoice3.invoice_items << create(:invoice_item, quantity: 3)
 
       get "/api/v1/merchants/most_items", params: {quantity: 2}
 
