@@ -30,8 +30,10 @@ describe "Customers Find Controller" do
     customer = create(:customer, created_at: time)
     get '/api/v1/customers/find', params: {created_at: time}
 
+    found_customer = Customer.find(json['id'])
+
     expect(response).to be_success
-    expect(json["created_at"]).to eq("2012-03-27T14:53:59.000Z")
+    expect(found_customer.created_at).to eq("2012-03-27T14:53:59.000Z")
   end
 
   it "can find a customer based on updated_at" do
@@ -39,7 +41,9 @@ describe "Customers Find Controller" do
     customer = create(:customer, updated_at: time)
     get '/api/v1/customers/find', params: {updated_at: time}
 
+    found_customer = Customer.find(json['id'])
+
     expect(response).to be_success
-    expect(json["updated_at"]).to eq("2012-06-30T14:53:59.000Z")
+    expect(found_customer.updated_at).to eq("2012-06-30T14:53:59.000Z")
   end
 end

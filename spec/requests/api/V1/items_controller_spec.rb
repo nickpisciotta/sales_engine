@@ -90,11 +90,9 @@ describe "Item Requests" do
       get "/api/v1/items/find_all", params: {id: item1_params}
 
       expect(response.status).to eq(200)
-
-      parsed_item = JSON.parse(response.body).first
-
-      expect(parsed_item["name"]).to eq(item1.name)
-      expect(parsed_item["description"]).to eq(item1.description)
+      
+      expect(json.first["name"]).to eq(item1.name)
+      expect(json.first["description"]).to eq(item1.description)
     end
 
     it "returns random item" do
