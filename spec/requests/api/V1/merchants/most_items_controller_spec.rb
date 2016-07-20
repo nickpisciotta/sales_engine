@@ -13,6 +13,7 @@ describe "Most Items Controller" do
       invoice1.transactions << create(:transaction)
       invoice2.transactions << create(:transaction)
       invoice3.transactions << create(:transaction)
+
       invoice1.invoice_items << create(:invoice_item, quantity: 2)
       invoice2.invoice_items << create(:invoice_item, quantity: 8)
       invoice2.invoice_items << create(:invoice_item, quantity: 4)

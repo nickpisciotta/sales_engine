@@ -7,11 +7,11 @@ class Merchant < ApplicationRecord
   default_scope { order('id ASC') }
 
   def find_revenue
-     invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).sum("quantity * unit_price")
+     revenue = invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).sum("quantity * unit_price")
   end
 
   def revenue_by_date(date)
-    invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).where(invoice_items: {created_at: date }).sum("quantity * unit_price")
+    revenue = invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).where(invoice_items: {created_at: date }).sum("quantity * unit_price")
   end
 
   def self.with_most_items(quantity)
