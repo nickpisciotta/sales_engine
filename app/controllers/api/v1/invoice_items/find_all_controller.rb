@@ -2,7 +2,12 @@ class Api::V1::InvoiceItems::FindAllController < ApplicationController
   respond_to :json, :xml
 
   def index
-    respond_with InvoiceItem.where(invoice_item_params)
+    if params['unit_price']
+      price = format_unit_price(params['unit_price'])
+      respond_with InvoiceItem.where(unit_price: price)
+    else
+      respond_with InvoiceItem.where(invoice_item_params)
+    end
   end
 
   private
