@@ -12,7 +12,8 @@
 /tmp/*
 !/log/.keep
 !/tmp/.keep
-
+coverage/index.html
+/coverage/index.html 
 # Ignore Byebug command history file.
 .byebug_history
 
