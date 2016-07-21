@@ -228,7 +228,44 @@
         null,
         null
       ],
+<<<<<<< HEAD
+      "/Users/nickpisciotta/turing/module3/Projects/sales_engine/app/models/invoice_item.rb": [
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/nickpisciotta/turing/module3/Projects/sales_engine/app/models/item.rb": [
+        1,
+        1,
+        1,
+        1,
+        null,
+        1,
+        1,
+        1,
+        2,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        2,
+        null,
+        null,
+        null,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
+      "/Users/nickpisciotta/turing/module3/Projects/sales_engine/app/controllers/api/v1/invoice_items/invoice_controller.rb": [
+
       "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/controllers/api/v1/invoice_items/invoice_controller.rb": [
+
         1,
         1,
         null,
@@ -771,7 +808,5 @@
         0,
         0
       ]
-    },
-    "timestamp": 1469067935
-  }
-}
+
+    "timestamp": 1469071814

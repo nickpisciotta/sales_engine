@@ -2,7 +2,7 @@ require 'rails_helper'
 
 describe "Items, Most Revenue Controller" do
   it "returns items with most revenues depending on quantity params" do
-    item1 = create(:item)
+    item1 = create(:item, unit_price: 4000)
     item2 = create(:item, unit_price: 3000)
     item3 = create(:item, unit_price: 2000)
     invoice_item1 = create(:invoice_item, item: item1, unit_price: item1.unit_price)
