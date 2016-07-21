@@ -6,6 +6,6 @@ class ApplicationController < ActionController::API
   end
 
   def format_unit_price(unit_price)
-    (unit_price.to_f * 100).to_i
+    (BigDecimal(unit_price) * 100).to_i
   end
 end

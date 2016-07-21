@@ -16,3 +16,5 @@ coverage/index.html
 /coverage/index.html 
 # Ignore Byebug command history file.
 .byebug_history
+
+/coverage/*
