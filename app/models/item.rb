@@ -18,7 +18,7 @@ class Item < ApplicationRecord
   end
 
   def best_day
-    best_day_hash = invoices.joins(:invoice_items).group("invoices.created_at").order("sum_invoice_items_quantity_all_invoice_items_unit_price DESC").sum("invoice_items.quantity * invoice_items.unit_price")
+    best_day_hash = invoice_items.joins(:invoice).group("invoices.created_at").order("sum_invoice_items_quantity DESC, invoices_created_at DESC").sum("invoice_items.quantity")
     best_day_hash.keys.first
   end
 end
