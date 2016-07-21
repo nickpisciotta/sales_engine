@@ -30,4 +30,8 @@ class Merchant < ApplicationRecord
   def self.revenue(date)
     Invoice.joins(:transactions).where(transactions: {result: "success"}).where(created_at: date).joins(:invoice_items).sum('quantity*unit_price')
   end
+
+  def self.most_revenue(quantity)
+    select("merchants.*, sum(quantity*unit_price) as revenue").joins(invoices: [:transactions, :invoice_items]).where(transactions: {result: "success"}).group("merchants.id").order("revenue DESC").first(quantity)
+  end
 end
