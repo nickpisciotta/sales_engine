@@ -24,7 +24,7 @@ class Merchant < ApplicationRecord
   end
 
   def favorite_customer
-    customers.joins(:transactions).where(transactions: {result: "success"}).group(:id).order('count(invoices.merchant_id)DESC').first
+    c = customers.joins(:transactions).where(transactions: {result: "success"}).group(:id).order('count(invoices.merchant_id)DESC').first
   end
 
   def self.revenue(date)
