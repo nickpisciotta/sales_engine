@@ -7,7 +7,7 @@ class Merchant < ApplicationRecord
 
 
   def find_revenue
-     revenue = invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).sum("quantity * unit_price")
+    invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).sum("quantity * unit_price")
   end
 
   def revenue_by_date(date)
@@ -29,9 +29,8 @@ class Merchant < ApplicationRecord
   def favorite_customer
     customers.joins(:transactions)
     .where(transactions: {result: "success"})
-    .select("customer.*, COUNT(invoices.merchant_id) AS results")
     .group(:id)
-    .order("results DESC")
+    .order('count(invoices.merchant_id)DESC')
     .first
   end
 
@@ -50,5 +49,12 @@ class Merchant < ApplicationRecord
     .order("SUM(invoice_items.quantity * invoice_items.unit_price) DESC")
     .group(:id)
     .limit("#{quantity}")
+  end
+
+  def customers_with_pending_invoices
+    customers.joins(:invoices)
+    .joins("INNER JOIN transactions on transactions.invoice_id=invoices.id")
+    .where("transactions.result = 'failed'")
+    .distinct
   end
 end
