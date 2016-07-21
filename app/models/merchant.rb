@@ -11,10 +11,19 @@ class Merchant < ApplicationRecord
   end
 
   def revenue_by_date(date)
-    revenue = invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).where(invoice_items: {created_at: date }).sum("quantity * unit_price")
+    revenue = invoices.joins(:transactions, :invoice_items)
+    .where(transactions: {result: "success"})
+    .where(invoice_items: {created_at: date })
+    .sum("quantity * unit_price")
   end
 
-  def self.with_most_items(quantity)
-    select("merchants.*, sum(quantity) AS num_items").joins(invoices: [:transactions, :invoice_items]).where(transactions: { result: "success" }).group("merchants.id").order("num_items DESC").first(quantity)
+  def self.with_most_items(num)
+  joins(invoices: [:transactions, :invoice_items])
+  .where(transactions: {result: "success"}).group(:id)
+  .order('sum(invoice_items.quantity) DESC').limit(num)
+  end
+
+  def favorite_customer
+    customers.joins(:transactions).where(transactions: {result: "success"}).group(:id).order('count(invoices.merchant_id)DESC').first
   end
 end
