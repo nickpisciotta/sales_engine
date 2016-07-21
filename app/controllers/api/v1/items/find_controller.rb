@@ -4,6 +4,7 @@ class Api::V1::Items::FindController < ApplicationController
   def show
     if params['unit_price']
       price = format_unit_price(params['unit_price'])
+      binding.pry
       respond_with Item.find_by(unit_price: price)
     else
       respond_with Item.find_by(item_params)
