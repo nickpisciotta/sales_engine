@@ -6,7 +6,7 @@ class Api::V1::Items::FindController < ApplicationController
       price = format_unit_price(params['unit_price'])
       respond_with Item.find_by(unit_price: price)
     else
-      respond_with Item.find_by(item_params)
+      respond_with Item.where(item_params).first
     end
   end
 
