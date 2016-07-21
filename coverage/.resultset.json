@@ -513,8 +513,6 @@
         null
       ],
       "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/controllers/api/v1/items/random_controller.rb": [
-<<<<<<< HEAD
-=======
         1,
         1,
         null,
@@ -544,7 +542,6 @@
         null
       ],
       "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/controllers/api/v1/merchants/favorite_customer_controller.rb": [
->>>>>>> 7a95a0d2f779e7f4b664765d02957d0fede9f273
         1,
         1,
         null,
@@ -614,8 +611,6 @@
         null,
         null
       ],
-<<<<<<< HEAD
-=======
       "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/controllers/api/v1/merchants/most_items_controller.rb": [
         1,
         1,
@@ -634,7 +629,6 @@
         null,
         null
       ],
->>>>>>> 7a95a0d2f779e7f4b664765d02957d0fede9f273
       "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/controllers/api/v1/merchants/random_controller.rb": [
         1,
         1,
@@ -737,14 +731,6 @@
         0
       ],
       "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/controllers/api/v1/invoice_items/find_all_controller.rb": [
-<<<<<<< HEAD
-        0,
-        0,
-        0,
-        0,
-        0,
-=======
->>>>>>> 7a95a0d2f779e7f4b664765d02957d0fede9f273
         0,
         0,
         0,
@@ -758,21 +744,6 @@
         0,
         0,
         0,
-<<<<<<< HEAD
-        0
-      ],
-      "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/controllers/api/v1/merchants/revenue_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-=======
->>>>>>> 7a95a0d2f779e7f4b664765d02957d0fede9f273
         0,
         0,
         0,
@@ -801,10 +772,6 @@
         0
       ]
     },
-<<<<<<< HEAD
-    "timestamp": 1469068971
-=======
-    "timestamp": 1469067935
->>>>>>> 7a95a0d2f779e7f4b664765d02957d0fede9f273
+    "timestamp": 1469070732
   }
 }
