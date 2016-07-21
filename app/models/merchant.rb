@@ -5,6 +5,7 @@ class Merchant < ApplicationRecord
   has_many :transactions, through: :invoices
   has_many :invoice_items, through: :invoices
   default_scope { order('id ASC') }
+  scope :successfuly_transactions, -> -> { joins(invoices: [:transactions]).where(transactions: { result: "success" })}
 
   def find_revenue
      revenue = invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).sum("quantity * unit_price")
