@@ -46,7 +46,7 @@ FactoryGirl.define do
   factory :invoice_item do
     item
     invoice
-    quantity Faker::Number.number(1)
+    quantity [1, 2, 3, 4].sample
     unit_price Faker::Number.number(4)
   end
 end
