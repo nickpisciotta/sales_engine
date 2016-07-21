@@ -5,7 +5,7 @@
         1,
         1,
         1,
-        164,
+        170,
         null,
         1,
         1,
@@ -60,7 +60,7 @@
         1,
         1,
         1,
-        230,
+        234,
         null,
         1,
         1,
@@ -90,6 +90,10 @@
         1,
         1,
         null,
+        null,
+        1,
+        1,
+        null,
         null
       ],
       "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/models/invoice.rb": [
@@ -99,7 +103,6 @@
         1,
         1,
         1,
-        null,
         null
       ],
       "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/models/transaction.rb": [
@@ -641,6 +644,15 @@
         null,
         null
       ],
+      "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/controllers/api/v1/merchants/pending_invoices_controller.rb": [
+        1,
+        1,
+        1,
+        1,
+        1,
+        null,
+        null
+      ],
       "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/controllers/api/v1/merchants/random_controller.rb": [
         1,
         1,
@@ -763,15 +775,6 @@
         0,
         0
       ],
-      "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/controllers/api/v1/merchants/pending_invoices_controller.rb": [
-        0,
-        0,
-        0,
-        0,
-        0,
-        0,
-        0
-      ],
       "/Users/lucyfox/turing/3module/projects/rails_engine/sales_engine/app/jobs/application_job.rb": [
         0,
         0
@@ -793,6 +796,6 @@
         0
       ]
     },
-    "timestamp": 1469076872
+    "timestamp": 1469078204
   }
 }
