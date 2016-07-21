@@ -11,10 +11,7 @@ class Merchant < ApplicationRecord
   end
 
   def revenue_by_date(date)
-    revenue = invoices.joins(:transactions, :invoice_items)
-    .where(transactions: {result: "success"})
-    .where(invoice_items: {created_at: date })
-    .sum("quantity * unit_price")
+     invoices.where("invoices.created_at = '#{date}'").joins(:transactions, :invoice_items).where("transactions.result = 'success'").sum("invoice_items.quantity * invoice_items.unit_price")
   end
 
   def self.with_most_items(num)
