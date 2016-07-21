@@ -1,15 +1,17 @@
 class Api::V1::Merchants::RevenueController < ApplicationController
+  respond_to :json, :xml
 
+  def show
+    if params['date']
+      revenue = formatted(Merchant.find(params['id']).revenue_by_date(params['date']))
+      respond_with(revenue: revenue)
+    else
+      revenue = formatted(Merchant.find(params['id']).find_revenue)
+      respond_with(revenue: revenue)
+    end
+  end
 
-
-
-#total revenue for a merchant
-Merchant.first.invoices.joins(:transactions, :invoice_items).where("transactions.result = 'success'").sum("invoice_items.quantity * invoice_items.unit_price")
+  def index
+    respond_with(total_revenue: formatted(Merchant.revenue(params['date'])))
+  end
 end
-
-
-#Total revenue for an item
-Item.first.invoice_items.sum("invoice_items.quantity * invoice_items.unit_price")
-
-
- Item.joins(:invoice_items).group("items.id").sum("invoice_items.quantity * invoice_items.unit_price")
