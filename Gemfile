@@ -20,12 +20,22 @@ gem 'jbuilder', '~> 2.5'
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
 # gem 'rack-cors'
 gem 'responders'
+gem 'active_model_serializers', github: "rails-api/active_model_serializers"
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem 'byebug', platform: :mri
   gem 'rspec-rails'
+  gem 'pry-rails'
 end
+
+group :test do
+  gem 'database_cleaner'
+  gem 'faker'
+  gem 'factory_girl_rails'
+  gem 'simplecov'
+end
+
 
 group :development do
   gem 'listen', '~> 3.0.5'
