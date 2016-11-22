@@ -5,9 +5,8 @@ class Merchant < ApplicationRecord
   has_many :transactions, through: :invoices
   has_many :invoice_items, through: :invoices
 
-
   def find_revenue
-    invoices.joins(:transactions, :invoice_items).where(transactions: {result: "success"}).sum("quantity * unit_price")
+    invoices.joins(:transactions, :invoice_items).merge(Transaction.successful).sum("quantity * unit_price")
   end
 
   def revenue_by_date(date)

@@ -1,5 +1,4 @@
 class Api::V1::Items::FindAllController < ApplicationController
-  respond_to :json, :xml
 
   def index
     if params['unit_price']
